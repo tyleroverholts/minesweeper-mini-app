@@ -21,15 +21,88 @@ function App() {
     const row = tile.row;
     const position = tile.position;
     let cellsArray = []
-
-    for(let i = row-1; i <= row+1; i++){
-      let positionValue
-      for(let j = position-1; j <= position+1; j++){
-        if(i === row && j === position){
-          continue;
+    if(position === 0){
+      if(row === 1){
+        for(let i = row; i <= row+1; i++){
+          let positionValue
+          for(let j = position; j <= position+1; j++){
+            if(i === row && j === position){
+              continue;
+            }
+            positionValue = i / 10 + j / 100
+            cellsArray.push(positionValue.toFixed(2))
+          }
         }
-        positionValue = i / 10 + j / 100
-        cellsArray.push(positionValue.toFixed(2))
+      }
+      if(row === 10){
+        for(let i = row-1; i <= row; i++){
+          let positionValue
+          for(let j = position; j <= position+1; j++){
+            if(i === row && j === position){
+              continue;
+            }
+            positionValue = i / 10 + j / 100
+            cellsArray.push(positionValue.toFixed(2))
+          }
+        }
+      }else{
+        for(let i = row-1; i <= row+1; i++){
+          let positionValue
+          for(let j = position; j <= position+1; j++){
+            if(i === row && j === position){
+              continue;
+            }
+            positionValue = i / 10 + j / 100
+            cellsArray.push(positionValue.toFixed(2))
+          }
+        }
+      }
+    }else if(position === 9){
+      if(row === 1){
+        for(let i = row; i <= row+1; i++){
+          let positionValue
+          for(let j = position-1; j <= position; j++){
+            if(i === row && j === position){
+              continue;
+            }
+            positionValue = i / 10 + j / 100
+            cellsArray.push(positionValue.toFixed(2))
+          }
+        }
+      }
+      if(row === 10){
+        for(let i = row-1; i <= row; i++){
+          let positionValue
+          for(let j = position-1; j <= position; j++){
+            if(i === row && j === position){
+              continue;
+            }
+            positionValue = i / 10 + j / 100
+            cellsArray.push(positionValue.toFixed(2))
+          }
+        }
+      } else{
+        for(let i = row-1; i <= row+1; i++){
+          let positionValue
+          for(let j = position-1; j <= position; j++){
+            if(i === row && j === position){
+              continue;
+            }
+            positionValue = i / 10 + j / 100
+            cellsArray.push(positionValue.toFixed(2))
+          }
+        }
+      }
+    }else{
+      for(let i = row-1; i <= row+1; i++){
+        let positionValue
+        for(let j = position-1; j <= position+1; j++){
+          if(i === row && j === position){
+            continue;
+          }
+          positionValue = i / 10 + j / 100
+          cellsArray.push(positionValue.toFixed(2))
+        }
       }
     }
     tile.adjacentCells = cellsArray
